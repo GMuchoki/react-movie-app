@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Search from "./components/Search.jsx";
 import MovieCard from "./components/MovieCard.jsx";
 import { useDebounce } from "react-use";
+import Spinner from "./components/Spinner.jsx";
+import {updateSearchCount} from "../supabase.js";
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -52,6 +54,10 @@ const App = () => {
             setMovieList(data.results || []);
 
             console.log(movieList);
+
+            if(query && data.results.length > 0) {
+                await updateSearchCount(query, data.results[0]);
+            }            
         } catch (error) {
             console.error(`Error fetching movies: ${error}`);
             setErrorMessage("Error fetching movies. Please try again later");
@@ -79,7 +85,7 @@ const App = () => {
                     <h2>All Movies</h2>
 
                     {isLoading ? (
-                        <p className="text-white">Loading...</p>
+                        <Spinner />
                     ) : errorMessage ? (
                         <p className="text-red-500">{errorMessage}</p>
                     ) : (
