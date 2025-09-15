@@ -55,3 +55,23 @@ export const updateSearchCount = async (searchTerm, movie) => {
         console.error('Error updating search count:', error)
     }
 }
+
+
+export const getTrendingMovies = async (limit = 5) => {
+    try {
+        const { data, error } = await supabase
+            .from('metrics')
+            .select('*')
+            .order('count', { ascending: false })
+            .limit(limit)
+
+        if (error) {
+            throw error
+        }
+
+        return data
+    } catch (error) {
+        console.error('Error fetching trending movies:', error)
+        return []
+    }
+}
