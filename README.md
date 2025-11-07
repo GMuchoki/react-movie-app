@@ -3,7 +3,7 @@
 A modern React-based movie search application powered by [TMDB API](https://developer.themoviedb.org/docs) for movie data and [Supabase](https://supabase.com) for tracking search analytics.
 The app allows users to **search for movies**, **discover trending films**, and **track search popularity** efficiently.
 
----
+## 🌐 Live Demo 👉 **[Visit React Movie App](https://gm-react-movie-app.netlify.app/)**
 
 ## 🚀 Features
 
@@ -14,13 +14,6 @@ The app allows users to **search for movies**, **discover trending films**, and 
 * **Supabase Integration** – Store search analytics in a Postgres database.
 * **Responsive UI** – Works on mobile and desktop devices.
 
----
-
-## 🖥️ Demo
-
-> https://gyazo.com/eb563ced47a2fe2f446b152b297828a1
-
----
 
 ## 🏗️ Tech Stack
 
